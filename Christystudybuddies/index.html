@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StudyBuddies helps students book focused virtual study sessions, pay securely, receive an access code, and join a Zoom study room." />
+  <meta name="theme-color" content="#101936" />
+   <link rel="shortcut icon" href="logo7.png" type="image/x-icon" style="width: 100PX;">
+  <title>StudyBuddies — Study Better. Stay Focused. Achieve More.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand" aria-label="StudySpace home">
+        <img src="logo7.png" style="width: 120px;">
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#how">How It Works</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"/></svg>
+        </button>
+        <a class="btn btn-ghost nav-join" href="#join">Join Session</a>
+        <a class="btn btn-primary nav-book" href="#sessions">Book a Session</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="Mobile navigation">
+        <a href="#home">Home</a>
+        <a href="#how">How It Works</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#faq">FAQ</a>
+        <a href="#join">Join Session</a>
+        <a class="btn btn-primary" href="#sessions">Book a Session</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="hero-orb orb-one" aria-hidden="true"></div>
+      <div class="hero-orb orb-two" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> Virtual study sessions built for focus</span>
+          <h1>Your Focused Space to <span>Study, Learn &amp; Make Progress</span></h1>
+          <p>Book a virtual study session, join a distraction-free environment, and stay accountable while working toward your academic and personal goals.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#sessions">Book a Study Session</a>
+            <a class="btn btn-secondary btn-lg" href="#how">How It Works <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="trust-row" aria-label="StudySpace benefits">
+            <span>✓ Flexible Study Times</span>
+            <span>✓ Secure Booking</span>
+            <span>✓ Focused Environment</span>
+            <span>✓ Instant Access After Booking</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal delay-1" aria-label="Upcoming study session preview">
+          <div class="session-preview-shell">
+            <div class="mini-floating mini-one">2 hr+ <small>focus block</small></div>
+            <div class="mini-floating mini-two">4.9 ★ <small>student rating</small></div>
+            <article class="upcoming-card">
+              <div class="upcoming-top">
+                <span class="overline">Upcoming session</span>
+                <span class="live-badge"><span class="pulse-dot"></span> Study Room Active</span>
+              </div>
+              <div class="date-tile">
+                <span>SAT</span>
+                <strong>19</strong>
+                <small>SEP</small>
+              </div>
+              <div class="upcoming-body">
+                <p class="muted">Saturday, 19 September</p>
+                <h3>7:00 PM – 9:00 PM</h3>
+                <p class="session-label">Focused Study Session</p>
+                <div class="session-meta-grid">
+                  <div><span>Seats</span><strong>12 available</strong></div>
+                  <div><span>Platform</span><strong>Zoom</strong></div>
+                  <div><span>Format</span><strong>Virtual</strong></div>
+                  <div><span>Access</span><strong>Instant code</strong></div>
+                </div>
+                <div class="preview-footer">
+                  <div class="avatar-stack" aria-label="Recent participants"><span>A</span><span>D</span><span>S</span><span>+8</span></div>
+                  <span>Join from anywhere</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section" aria-label="StudySpace statistics">
+      <div class="container stats-grid">
+        <div class="stat-card reveal"><strong class="stat-number" data-target="500" data-suffix="+">0</strong><span>Study Hours Completed</span></div>
+        <div class="stat-card reveal"><strong class="stat-number" data-target="150" data-suffix="+">0</strong><span>Student Bookings</span></div>
+        <div class="stat-card reveal"><strong class="stat-number" data-target="4.9" data-decimals="1" data-suffix="/5">0</strong><span>Average Experience</span></div>
+        <div class="stat-card reveal"><strong class="stat-number" data-target="95" data-suffix="%">0</strong><span>Would Join Again</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="eyebrow">Simple by design</span>
+          <h2>From booking to deep focus in four easy steps</h2>
+          <p>No complicated setup. Choose a time, confirm your place, and receive everything you need to join.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card reveal">
+            <span class="step-number">01</span>
+            <div class="icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></div>
+            <h3>Choose a Study Session</h3><p>Browse upcoming virtual focus sessions that fit your week.</p>
+          </article>
+          <article class="step-card reveal delay-1">
+            <span class="step-number">02</span>
+            <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <h3>Select Your Date &amp; Time</h3><p>Pick an available slot and see seats, duration and price instantly.</p>
+          </article>
+          <article class="step-card reveal delay-2">
+            <span class="step-number">03</span>
+            <div class="icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h4"/></svg></div>
+            <h3>Complete Your Booking</h3><p>Enter your details and finish the secure payment simulation.</p>
+          </article>
+          <article class="step-card reveal delay-3">
+            <span class="step-number">04</span>
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M7 12.5 10.5 16 17 8"/><circle cx="12" cy="12" r="9"/></svg></div>
+            <h3>Receive Your Code &amp; Join</h3><p>Get your access code immediately and use it to unlock the Zoom room.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section booking-section" id="sessions">
+      <div class="container">
+        <div class="section-heading split reveal">
+          <div><span class="eyebrow">Book your focus block</span><h2>Find Your Next Study Session</h2></div>
+          <p>Choose a date, pick the exact start time you want, then choose how many hours you need. Every hour is €5.</p>
+        </div>
+
+        <div class="booking-layout">
+          <div class="booking-main">
+            <div class="booking-card reveal">
+              <div class="booking-card-head">
+                <div><span class="step-pill">Step 1</span><h3>Choose a date</h3></div>
+                <span class="availability-badge"><span></span> New sessions available</span>
+              </div>
+              <div class="date-scroller-wrap">
+                <button class="scroll-btn" id="dateScrollPrev" aria-label="Scroll dates left">‹</button>
+                <div class="date-scroller" id="dateList" role="listbox" aria-label="Available study dates"></div>
+                <button class="scroll-btn" id="dateScrollNext" aria-label="Scroll dates right">›</button>
+              </div>
+            </div>
+
+            <div class="booking-card reveal">
+              <div class="booking-card-head">
+                <div><span class="step-pill">Step 2</span><h3>Choose your start time</h3></div>
+                <span class="selected-date-label" id="selectedDateLabel">Choose a date first</span>
+              </div>
+
+              <div class="time-helper" id="timeHelper">
+                <div>
+                  <span class="time-helper-kicker">Flexible hourly booking</span>
+                  <strong>Study for exactly as long as you need.</strong>
+                </div>
+                <span class="hourly-rate">€5 <small>/ hour</small></span>
+              </div>
+
+              <div class="time-grid" id="timeList" aria-live="polite">
+                <div class="empty-state"><div class="empty-icon">⌁</div><h4>Choose a date first</h4><p>Available start times will appear here instantly.</p></div>
+              </div>
+
+              <div class="duration-panel" id="durationPanel" hidden>
+                <div class="duration-head">
+                  <div><span class="step-pill subtle">Step 3</span><h4>How long would you like to study?</h4></div>
+                  <span id="selectedStartLabel">Start time selected</span>
+                </div>
+                <div class="duration-options" id="durationOptions" role="group" aria-label="Study duration"></div>
+                <div class="duration-preview" id="durationPreview" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="booking-summary reveal" id="bookingSummary">
+            <div class="summary-head"><span class="step-pill">Your booking</span><h3>Your Study Session</h3><p>Review your selection before continuing.</p></div>
+            <div class="summary-placeholder" id="summaryPlaceholder">
+              <div class="summary-illustration">⌚</div><strong>No session selected yet</strong><p>Choose a date and time to build your booking summary.</p>
+            </div>
+            <div class="summary-content" id="summaryContent" hidden>
+              <dl>
+                <div><dt>Date</dt><dd id="summaryDate">—</dd></div>
+                <div><dt>Time</dt><dd id="summaryTime">—</dd></div>
+                <div><dt>Duration</dt><dd id="summaryDuration">—</dd></div>
+                <div><dt>Study Room</dt><dd>Virtual Focus Room</dd></div>
+                <div><dt>Platform</dt><dd>Zoom</dd></div>
+              </dl>
+              <div class="price-row"><span>Total</span><strong id="summaryPrice">€ 0</strong></div>
+              <button class="btn btn-primary btn-block" id="continueBookingBtn" type="button">Continue to Booking</button>
+              <p class="secure-note"><span>◈</span> Click the link to make payment.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section join-section" id="join">
+      <div class="container join-layout">
+        <div class="join-copy reveal">
+          <span class="eyebrow">Already booked?</span>
+          <h2>Join Your Study Session</h2>
+          <p>Enter the access code you received after booking. We’ll verify your booking locally and unlock your session details.</p>
+          <div class="security-note"><span>✓</span><div><strong>Prototype access control</strong><p>Codes are stored in your browser for this website. Production access must be validated securely on a server.</p></div></div>
+        </div>
+        <div class="join-card reveal delay-1">
+          <form id="verifyForm" novalidate>
+            <label for="accessCodeInput">Study Access Code</label>
+            <div class="code-input-row">
+              <input id="accessCodeInput" name="accessCode" type="text" placeholder="STUDY-XXXX-XXXX" autocomplete="off" spellcheck="false" maxlength="15" />
+              <button class="btn btn-primary" type="submit">Verify Access Code</button>
+            </div>
+            <p class="field-hint">Your code was shown after payment and can be copied from your booking confirmation.</p>
+          </form>
+          <div class="verify-result" id="verifyResult" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="benefits">
+      <div class="container">
+        <div class="section-heading centered reveal"><span class="eyebrow">The StudyBuddies experience</span><h2>Designed for Deep Focus</h2><p>Every detail is designed to help you settle in quickly, stay accountable, and make meaningful progress.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><div class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Quiet Virtual Environment</h3><p>Study alongside others without unnecessary distractions.</p></article>
+          <article class="feature-card reveal delay-1"><div class="icon-box"><svg viewBox="0 0 24 24"><path d="M8 11a4 4 0 1 1 8 0v2a4 4 0 1 1-8 0v-2Z"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h3>Accountability</h3><p>Knowing others are studying helps you stay committed.</p></article>
+          <article class="feature-card reveal delay-2"><div class="icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18"/></svg></div><h3>Flexible Scheduling</h3><p>Choose study sessions that fit your schedule.</p></article>
+          <article class="feature-card reveal"><div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg></div><h3>Focused Time Blocks</h3><p>Structured periods designed to help you complete meaningful work.</p></article>
+          <article class="feature-card reveal delay-1"><div class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Virtual Convenience</h3><p>Join from anywhere using your laptop, tablet or phone.</p></article>
+          <article class="feature-card reveal delay-2"><div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Reliable Access</h3><p>Your unique booking code gives you a clear route back to your session.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rules-section">
+      <div class="container rules-layout">
+        <div class="rules-copy reveal"><span class="eyebrow">Healthy study etiquette</span><h2>A Space Built for Focus</h2><p>Simple, positive guidelines keep the room calm and productive for everyone.</p><div class="rules-highlight"><strong>Come with one clear goal.</strong><span>Leave with measurable progress.</span></div></div>
+        <div class="rules-card reveal delay-1">
+          <ul>
+            <li><span>✓</span> Join the session on time.</li>
+            <li><span>✓</span> Keep your microphone muted unless communication is required.</li>
+            <li><span>✓</span> Respect other participants.</li>
+            <li><span>✓</span> Keep conversations related to studying.</li>
+            <li><span>✓</span> Cameras are optional unless otherwise stated.</li>
+            <li><span>✓</span> Avoid unnecessary distractions.</li>
+            <li><span>✓</span> Use each session intentionally.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section-heading centered reveal"><span class="eyebrow">Student feedback</span><h2>Small structure. Better study days.</h2></div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card reveal"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Having a dedicated study session completely changed how productive my evenings are.”</blockquote><div class="testimonial-author"><span>L</span><div><strong>Loveth</strong><small>Medical Student</small></div></div></article>
+          <article class="testimonial-card reveal delay-1"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“I used to procrastinate constantly. Booking a study session gives me a reason to actually sit down and work.”</blockquote><div class="testimonial-author"><span>D</span><div><strong>Daniel</strong><small>MSc Student</small></div></div></article>
+          <article class="testimonial-card reveal delay-2"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“The environment is calm and simple. I get more work done in two hours here than an entire afternoon studying alone.”</blockquote><div class="testimonial-author"><span>A</span><div><strong>Amara</strong><small>Medical Student</small></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-heading centered reveal"><span class="eyebrow">Simple pricing</span><h2>Choose the focus plan that fits you</h2><p>Start with one session today. Multi-session packs can be enabled later when the backend is connected.</p></div>
+        <div class="pricing-grid">
+          <article class="pricing-card reveal"><span class="pricing-label">Flexible Study Time</span><div class="price"><span>€</span><strong>5</strong><small>/ hour</small></div><p>Choose the exact start time and number of hours that work for you.</p><ul><li>✓ 1-hour minimum booking</li><li>✓ Choose your own start time</li><li>✓ Zoom access</li><li>✓ Study accountability</li><li>✓ Instant access code</li></ul><a class="btn btn-primary btn-block" href="#sessions">Choose My Time</a></article>
+          <article class="pricing-card featured reveal delay-1"><span class="best-value">Future Package</span><span class="pricing-label">Study Pack</span><div class="price"><span>€</span><strong>200</strong></div><p>A discounted five-hour study credit package for regular students.</p><ul><li>✓ 5 study hours</li><li>✓ Use across available dates</li><li>✓ Better value per hour</li><li>✓ Flexible scheduling</li><li>✓ Coming with backend launch</li></ul><button class="btn btn-secondary btn-block" type="button" disabled>Coming Soon</button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container faq-layout">
+        <div class="faq-intro reveal"><span class="eyebrow">Questions, answered</span><h2>Everything you need to know</h2><p>Still unsure how a StudyBuddies session works? These are the questions students ask most often.</p><a class="btn btn-secondary" href="#sessions">Explore Sessions</a></div>
+        <div class="faq-list" id="faqList">
+          <article class="faq-item reveal"><button class="faq-question" type="button" aria-expanded="false"><span>What happens during a study session?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>You join a quiet virtual focus room, set your intention, and work independently alongside other students for the booked time block.</p></div></article>
+          <article class="faq-item reveal"><button class="faq-question" type="button" aria-expanded="false"><span>Do I need to keep my camera on?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>No. Cameras are optional unless a specific session description says otherwise.</p></div></article>
+          <article class="faq-item reveal"><button class="faq-question" type="button" aria-expanded="false"><span>How do I join the Zoom study room?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Enter your access code in the “Join Your Study Session” section. Once verified, the Zoom button appears.</p></div></article>
+          <article class="faq-item reveal"><button class="faq-question" type="button" aria-expanded="false"><span>Where will I find my access code?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>It is displayed immediately after successful payment. In production, it should also be delivered by email from the backend.</p></div></article>
+          <article class="faq-item reveal"><button class="faq-question" type="button" aria-expanded="false"><span>Can I change my booking?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>This frontend prototype does not support rescheduling. A production backend can add booking changes, cancellation rules, and admin approval.</p></div></article>
+          <article class="faq-item reveal"><button class="faq-question" type="button" aria-expanded="false"><span>What happens if I miss my session?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Your booking remains tied to the selected session. A real service should define a clear refund and rescheduling policy.</p></div></article>
+          <article class="faq-item reveal"><button class="faq-question" type="button" aria-expanded="false"><span>Can I join from my phone?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>Yes. Zoom works on supported phones, tablets and computers, although a larger screen may be more comfortable for studying.</p></div></article>
+          <article class="faq-item reveal"><button class="faq-question" type="button" aria-expanded="false"><span>Is payment secure?</span><span class="faq-icon">+</span></button><div class="faq-answer"><p>This website simulates payment only and collects no card details. Production payments should be processed and verified by a trusted gateway such as Stripes.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-grid" aria-hidden="true"></div>
+          <div><span class="eyebrow light">Your next productive session starts here</span><h2>Ready to Make Your Next Study Session Count?</h2><p>Choose a time, reserve your study space and give yourself the focused environment you need to make progress.</p></div>
+          <a class="btn btn-light btn-lg" href="#sessions">Book My Study Session</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><a href="#home" class="brand"> <img src="logo7.png" style="width: 160px;"></a><p>Your focused virtual space for better study sessions.</p><div class="social-row"><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a href="https://x.com" target="_blank" rel="noopener" aria-label="X / Twitter">𝕏</a><a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="Tiktok">Tk</a><a href="mailto:christyscrashcourse@gmail.com" aria-label="Email">@</a></div></div>
+      <div><h4>Explore</h4><a href="#home">Home</a><a href="#sessions">Sessions</a><a href="#how">How It Works</a><a href="#faq">FAQ</a></div>
+      <div><h4>Support</h4><a href="mailto:christyscrashcourse@gmail.com">Contact</a><a href="#join">Join Session</a><a href="#pricing">Pricing</a></div>
+      <div><h4>Legal</h4><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Refund Policy</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 StudyBuddies. All rights reserved.</span><span>Built for students who want to make progress.</span></div>
+  </footer>
+
+  <button class="floating-book" id="floatingBook" type="button">Book Session</button>
+
+  <div class="modal-backdrop" id="bookingModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle" tabindex="-1">
+      <button class="modal-close" type="button" data-close="bookingModal" aria-label="Close booking form">×</button>
+      <div class="modal-head"><span class="step-pill">Booking details</span><h2 id="bookingModalTitle">Reserve your study space</h2><p>Tell us who is joining and what you plan to work on.</p></div>
+      <div class="modal-summary-strip" id="modalBookingSummary"></div>
+      <form id="bookingForm" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="fullName">Full Name</label><input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Your full name" /><span class="error" data-error-for="fullName"></span></div>
+          <div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" /><span class="error" data-error-for="email"></span></div>
+          <div class="field full"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. +234 800 000 0000" /><span class="error" data-error-for="phone"></span></div>
+          <div class="field full"><label for="studyGoal">Study Goal</label><textarea id="studyGoal" name="studyGoal" rows="4" placeholder="What are you planning to work on during this session?"></textarea><span class="error" data-error-for="studyGoal"></span><small>Example: Prepare for my engineering examination.</small></div>
+        </div>
+        <label class="check-row"><input id="guidelines" name="guidelines" type="checkbox" /><span>I agree to respect the StudyBuddies focus-room guidelines.</span></label><span class="error checkbox-error" data-error-for="guidelines"></span>
+        <button class="btn btn-primary btn-block btn-lg" id="proceedPaymentBtn" type="submit">Proceed to Payment — <span id="bookingButtonPrice">€0</span></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="paymentModal" aria-hidden="true">
+    <div class="modal payment-modal" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle" tabindex="-1">
+      <button class="modal-close" type="button" data-close="paymentModal" aria-label="Close payment">×</button>
+      <div id="paymentInitialState">
+        <div class="modal-head"><span class="secure-badge">◈ Secure checkout</span><h2 id="paymentModalTitle">Complete your booking</h2><p>This payment screen is a frontend simulation. No real banking data is requested or stored.</p></div>
+        <div class="payment-overview" id="paymentOverview"></div>
+        <fieldset class="payment-methods"><legend>Payment method</legend><label class="payment-option active"><input type="radio" name="paymentMethod" value="Card" checked><span class="method-icon">▣</span><span><strong>Card Method</strong><small></small></span><b>✓</b></label><label class="payment-option"><input type="radio" name="paymentMethod" value="Bank Transfer"><span class="method-icon">⇄</span><span><strong>Bank Transfer</strong><small>Simulated bank transfer</small></span><b>✓</b></label></label></fieldset>
+        <button class="btn btn-primary btn-block btn-lg" id="paySecurelyBtn" type="button">Pay Securely</button>
+        <p class="secure-note centered-note">🔒 Real payment verification must happen on a backend in production.</p>
+      </div>
+      <div class="payment-processing" id="paymentProcessingState" hidden><div class="loader-ring"></div><h3>Processing payment...</h3><p>Please keep this window open.</p></div>
+      <div class="payment-success" id="paymentSuccessState" hidden><div class="success-icon">✓</div><h2>Payment Successful</h2><p>Your booking is confirmed.</p></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="successModal" aria-hidden="true">
+    <div class="modal success-modal" role="dialog" aria-modal="true" aria-labelledby="successModalTitle" tabindex="-1">
+      <button class="modal-close" type="button" data-close="successModal" aria-label="Close booking confirmation">×</button>
+      <div class="success-burst" aria-hidden="true">✓</div>
+      <span class="success-kicker">Booking confirmed</span>
+      <h2 id="successModalTitle">You're Booked! 🎉</h2>
+      <p class="success-copy">Your focus session is reserved. Save your access code somewhere safe.</p>
+      <div class="success-session" id="successSessionDetails"></div>
+      <div class="access-code-panel"><span>Your Study Access Code</span><strong id="generatedAccessCode">STUDY-XXXX-XXXX</strong><p>Keep this code safe. You will need it to access your study session.</p></div>
+      <div class="success-actions"><button class="btn btn-primary" id="copyCodeBtn" type="button">Copy Access Code</button><a class="btn btn-secondary" id="successJoinBtn" href="#join">Join Study Session</a><button class="btn btn-secondary" id="addCalendarBtn" type="button">Add to Calendar</button></div>
+    </div>
+  </div>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
