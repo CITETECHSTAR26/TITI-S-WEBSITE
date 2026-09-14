@@ -39,9 +39,9 @@ const THEME_STORAGE_KEY = 'studyspace_theme';
 
 const STRIPE_PAYMENT_LINKS = {
   1: 'https://buy.stripe.com/fZueVdaVteU44rT6SE8ww00', // 1 Hour = €5
-  2: 'https://buy.stripe.com/fZubJ1e7FeU4cYpel68ww01', // 2 Hours = €10
-  3: 'YOUR_3_HOUR_STRIPE_LINK', // 3 Hours = €15
-  4: 'YOUR_4_HOUR_STRIPE_LINK'  // 4 Hours = €20
+  2: 'https://buy.stripe.com/14A9ATfbJ3bm3nP3Gs8ww03', // 2 Hours = €10
+  3: 'https://buy.stripe.com/dRmfZh6Fd13ecYp0ug8ww04', // 3 Hours = €15
+  4: 'https://buy.stripe.com/5kQ7sL3t13bmcYp6SE8ww05'  // 4 Hours = €20
 };
 
 let selectedSession = null;
