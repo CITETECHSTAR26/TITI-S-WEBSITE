@@ -34,6 +34,15 @@ const sessions = [
 
 const ZOOM_PLACEHOLDER_URL = 'https://zoom.us/';
 const STORAGE_KEY = 'studyspace_bookings_v1';
+const PENDING_BOOKING_KEY = 'studyspace_pending_booking';
+const THEME_STORAGE_KEY = 'studyspace_theme';
+
+const STRIPE_PAYMENT_LINKS = {
+  1: 'https://buy.stripe.com/fZueVdaVteU44rT6SE8ww00', // 1 Hour = €5
+  2: 'https://buy.stripe.com/fZubJ1e7FeU4cYpel68ww01', // 2 Hours = €10
+  3: 'YOUR_3_HOUR_STRIPE_LINK', // 3 Hours = €15
+  4: 'YOUR_4_HOUR_STRIPE_LINK'  // 4 Hours = €20
+};
 
 let selectedSession = null;
 let selectedSlot = null;
@@ -47,7 +56,6 @@ const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)]
 
 function formatCurrency(value) {
   return new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value);
-
 }
 
 function parseDate(dateString) {
@@ -110,8 +118,7 @@ function closeModal(id, restoreFocus = true) {
 function trapFocus(event, modalBackdrop) {
   if (event.key !== 'Tab') return;
   const focusables = $$('button:not([disabled]), a[href], input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])', modalBackdrop)
-    
-  (el => el.offsetParent !== null);
+    .filter(el => el.offsetParent !== null);
   if (!focusables.length) return;
   const first = focusables[0];
   const last = focusables[focusables.length - 1];
@@ -320,7 +327,7 @@ function validateBookingForm() {
 
 function openPayment(fields) {
   bookingDraft = {
-    id: crypto.randomUUID ? crypto.randomUUID() : `booking-${Date.now()}`,
+    id: globalThis.crypto?.randomUUID ? globalThis.crypto.randomUUID() : `booking-${Date.now()}`,
     fullName: fields.fullName,
     email: fields.email,
     phone: fields.phone,
@@ -360,7 +367,36 @@ function generateAccessCode(existingCodes) {
   return code;
 }
 
-function completePayment() {
+function redirectToStripeCheckout() {
+  if (!bookingDraft) {
+    showToast('Booking incomplete', 'Please complete your booking before proceeding to payment.', 'error');
+    return;
+  }
+
+  const hours = Number(bookingDraft.durationHours);
+  const paymentLink = STRIPE_PAYMENT_LINKS[hours];
+
+  if (!paymentLink) {
+    showToast('Invalid duration', 'Please select between 1 and 4 hours.', 'error');
+    return;
+  }
+
+  if (paymentLink.includes('YOUR_')) {
+    showToast('Payment link unavailable', `The ${hours}-hour Stripe payment link has not been configured yet.`, 'error');
+    return;
+  }
+
+  localStorage.setItem(PENDING_BOOKING_KEY, JSON.stringify(bookingDraft));
+
+  const stripeUrl = new URL(paymentLink);
+  if (bookingDraft.email) stripeUrl.searchParams.set('prefilled_email', bookingDraft.email);
+  if (bookingDraft.id) stripeUrl.searchParams.set('client_reference_id', bookingDraft.id);
+
+  window.location.assign(stripeUrl.toString());
+}
+
+// Backend hook: call this only after Stripe payment has been verified server-side.
+function confirmBookingAfterVerifiedPayment() {
   if (!bookingDraft) return;
   const bookings = getStoredBookings();
   const existing = new Set(bookings.map(b => b.accessCode));
@@ -544,13 +580,13 @@ function setupMobileMenu() {
 }
 
 function setupTheme() {
-  const saved = localStorage.getItem('studyspace_theme');
+  const saved = localStorage.getItem(THEME_STORAGE_KEY);
   const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.dataset.theme = theme;
   $('#themeToggle').addEventListener('click', () => {
     const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
-    localStorage.setItem('studyspace_theme', next);
+    localStorage.setItem(THEME_STORAGE_KEY, next);
   });
 }
 
@@ -575,46 +611,7 @@ function setupBookingFlow() {
   });
   $('#guidelines').addEventListener('change', () => $('[data-error-for="guidelines"]').textContent = '');
 
-  $$('.payment-option').forEach(option => {
-    option.addEventListener('click', () => {
-      $$('.payment-option').forEach(item => item.classList.remove('active'));
-      option.classList.add('active');
-      $('input', option).checked = true;
-    });
-  });
-const STRIPE_PAYMENT_LINK =
-  "https://buy.stripe.com/fZueVdaVteU44rT6SE8ww00";
-
-$('#paySecurelyBtn').addEventListener('click', () => {
-  if (!bookingDraft) return;
-
-  // Save the booking temporarily before redirecting to Stripe.
-  localStorage.setItem(
-    'studyspace_pending_booking',
-    JSON.stringify(bookingDraft)
-  );
-
-  const stripeUrl = new URL(STRIPE_PAYMENT_LINK);
-
-  // Pre-fill the customer's email on Stripe checkout.
-  if (bookingDraft.email) {
-    stripeUrl.searchParams.set(
-      'prefilled_email',
-      bookingDraft.email
-    );
-  }
-
-  // Attach our booking reference to the Stripe transaction.
-  if (bookingDraft.id) {
-    stripeUrl.searchParams.set(
-      'client_reference_id',
-      bookingDraft.id
-    );
-  }
-
-  // Send the customer to Stripe.
-  window.location.href = stripeUrl.toString();
-});
+  $('#paySecurelyBtn').addEventListener('click', redirectToStripeCheckout);
 
   $('#copyCodeBtn').addEventListener('click', copyAccessCode);
   $('#addCalendarBtn').addEventListener('click', addToCalendar);
